@@ -1,4 +1,4 @@
-import { AzureKeyCredential, OpenAIClient } from "@azure/openai"
+const { AzureKeyCredential, OpenAIClient } = require("@azure/openai");
 
 export const azuresendPromptToGpt = async (prompt:string) => {
 
