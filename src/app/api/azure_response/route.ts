@@ -1,14 +1,12 @@
 import { NextResponse } from 'next/server';
-import { openaiClient, sendPromptToGpt } from "@/app/services/openai-service";
+import { azuresendPromptToGpt } from "@/app/services/azure-service";
 
 export async function POST(request: Request) {
 
-    const openai = openaiClient();
-
     const { prompt } = await request.json();
     
-    const gptResponseMessage = await sendPromptToGpt(prompt);
+    const gptResponseMessage = await azuresendPromptToGpt(prompt);
     const response = NextResponse.json({ gptResponseMessage })
-    console.log("openai")
+    console.log("azure")
     return response;
 }
