@@ -1,7 +1,8 @@
 import React from 'react';
-import AzureChatClient from '../components/azureChatClient';
+import OaChatClient from '../../components/oaChatClient';
+import withAuth from '@/app/lib/withAuth';
 
-async function ChatPage() {
+function ChatPage() {
 
     return (
         <div className="flex flex-col h-screen">
@@ -10,10 +11,10 @@ async function ChatPage() {
             <h1 className="text-lg">チャットルーム</h1>
         </div>
         
-        <AzureChatClient />
+        <OaChatClient />
         
         </div>
     )
 };
 
-export default ChatPage
+export default withAuth(ChatPage)

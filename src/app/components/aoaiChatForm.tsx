@@ -3,7 +3,12 @@ import React, { useState } from 'react'
 import { useRecoilState, useResetRecoilState } from 'recoil'
 import { chatLogState } from '../states/chatLogState'
 
-const AoaiChatForm = () => {
+// 型定義を追加
+interface AoaiChatFormProps {
+    token: string;
+}
+
+const AoaiChatForm: React.FC<AoaiChatFormProps> = ({ token }) => {
 
     const [input, setInput] = useState<string>("")
     const [chatLog, setChatLog] = useRecoilState(chatLogState)
@@ -23,10 +28,11 @@ const AoaiChatForm = () => {
             headers: {
             "Content-Type": "application/json;charset=UTF-8",
             },
-            body: JSON.stringify({ prompt: input }),
+            body: JSON.stringify({ prompt: input ,token}),
         });
         
-        console.log(res)
+        console.log({ prompt: input ,token})
+        console.log("res",res)
 
         if (!res.ok) {
             throw new Error('Response error');

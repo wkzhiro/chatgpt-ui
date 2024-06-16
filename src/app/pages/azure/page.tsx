@@ -1,5 +1,5 @@
 import React from 'react';
-import OaChatClient from '../components/oaChatClient';
+import AzureChatClient from '../../components/azureChatClient';
 
 async function ChatPage() {
 
@@ -10,7 +10,7 @@ async function ChatPage() {
             <h1 className="text-lg">チャットルーム</h1>
         </div>
         
-        <OaChatClient />
+        <AzureChatClient />
         
         </div>
     )

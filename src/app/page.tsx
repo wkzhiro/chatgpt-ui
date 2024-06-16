@@ -1,19 +1,16 @@
-import React from 'react';
-import ChatClient from '@/app/components/ChatClient';
+'use client';
+import axios from "axios"
 
-async function ChatPage() {
+export default function Home() {
+    const signin = async() => {
+        const {data} = await axios.get("/api/auth/signin")
+        // API Route から返却された URL にリダイレクトする
+        window.location.href = data.redirect_url
+    }
 
     return (
-        <div className="flex flex-col h-screen">
-        {/* <!-- チャットヘッダー --> */}
-        <div className="p-3 bg-gray-800 text-white">
-            <h1 className="text-lg">チャットルーム</h1>
-        </div>
-        
-        <ChatClient />
-        
-        </div>
+        <main>
+        <button onClick={() => signin()}>サインイン</button>
+        </main>
     )
-};
-
-export default ChatPage
+}

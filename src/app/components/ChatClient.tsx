@@ -6,7 +6,13 @@ import ChatMessage from './ChatMessage';
 import AoaiChatForm from './aoaiChatForm';
 // import ChatForm from './ChatForm';
 
-const ChatClient = () => {
+// 型定義を追加
+interface ChatClientProps {
+    token: string;
+}
+
+const ChatClient: React.FC<ChatClientProps>  = ({ token }) => {
+    console.log("client_token",token)
     return (
         <RecoilRoot >
         {/* <!-- メッセージエリア --> */}
@@ -15,7 +21,7 @@ const ChatClient = () => {
         </div>
     
         {/* <!-- テキスト入力フォーム --> */}
-        <AoaiChatForm />
+        <AoaiChatForm token={token} />
 
         </RecoilRoot>
     )
